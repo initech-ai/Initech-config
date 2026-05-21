@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ramen-ui
-  namespace: dev
+  namespace: vnv
 spec:
   replicas: 1
   selector:

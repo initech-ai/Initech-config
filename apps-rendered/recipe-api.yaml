@@ -3,17 +3,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: recipe-api-main
+  name: recipe-api-vnv
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/initech-ai/Initech-config.git
-    targetRevision: main
+    targetRevision: env/vnv
     path: services/recipe-api/templates
   destination:
     server: https://kubernetes.default.svc
-    namespace: main
+    namespace: vnv
   syncPolicy:
     automated:
       prune: true
