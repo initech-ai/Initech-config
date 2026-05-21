@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: recipe-api-{{ .Values.branch }}
+  name: recipe-api-{{ .Values.branch | replace "/" "-" }}
   namespace: argocd
 spec:
   project: default
@@ -11,7 +11,7 @@ spec:
     path: services/recipe-api/templates
   destination:
     server: https://kubernetes.default.svc
-    namespace: recipe-api-{{ .Values.branch }}
+    namespace: recipe-api-{{ .Values.branch | replace "/" "-" }}
   syncPolicy:
     automated:
       prune: true
