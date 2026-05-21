@@ -22,7 +22,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: '{{ .url }}'
+        repoURL: 'https://github.com/initech-ai/Initech-config.git'
         targetRevision: '{{ .branch }}'
         path: apps-rendered
       destination:
