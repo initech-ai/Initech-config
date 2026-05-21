@@ -4,24 +4,25 @@ metadata:
   name: environments-appset
   namespace: argocd
 spec:
+  goTemplate: true
   generators:
     - git:
         repoURL: https://github.com/therealdavidbour/Initech-config.git
         revision: HEAD
-        directories:
-          - path: environments/*/*
+        branches:
+          - pattern: "^env/.*"
   template:
     metadata:
-      name: '{{path[1]}}-{{path.basename}}'
+      name: 'root-{{ .branch | replace "/" "-" }}'
     spec:
       project: default
       source:
         repoURL: https://github.com/therealdavidbour/Initech-config.git
-        targetRevision: HEAD
-        path: '{{path}}'
+        targetRevision: '{{ .branch }}'
+        path: apps-rendered
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path[1]}}'
+        namespace: argocd
       syncPolicy:
         automated:
           prune: true
