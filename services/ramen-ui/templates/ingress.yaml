@@ -9,10 +9,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - ramen-ui.10-0-0-200.nip.io
+        - ramen-ui-vnv.10-0-0-200.nip.io
       secretName: ramen-ui-tls
   rules:
-    - host: ramen-ui.10-0-0-200.nip.io
+    - host: ramen-ui-vnv.10-0-0-200.nip.io
       http:
         paths:
           - path: /

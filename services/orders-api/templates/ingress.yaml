@@ -9,10 +9,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - orders-api.10-0-0-200.nip.io
+        - orders-api-vnv.10-0-0-200.nip.io
       secretName: orders-api-tls
   rules:
-    - host: orders-api.10-0-0-200.nip.io
+    - host: orders-api-vnv.10-0-0-200.nip.io
       http:
         paths:
           - path: /
